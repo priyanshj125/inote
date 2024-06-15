@@ -29,6 +29,9 @@ const Login = (props) => {
           props.setProgress(100)
 
       props.showalert("successfuly login","success")
+      setTimeout(() => {
+        window.location.reload();
+      }, 500);
         }
         else {
           props.showalert("invalid credenstials","danger")

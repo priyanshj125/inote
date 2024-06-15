@@ -23,11 +23,19 @@ const Signup = (props) => {
       },
       body: JSON.stringify({name:cradensital.name,email:cradensital.email,password:cradensital.password}), 
     });
+    props.setProgress(10)
+
     const json = await response.json();
+    props.setProgress(30)
+
     console.log(json);
     if (json.success) {
       localStorage.setItem('token',json.authtoken);
+      props.setProgress(60)
+
       history("/login");
+      props.setProgress(100)
+
       props.showalert("successfuly crerate account","success")
   }else{
     // alert(json.message) 
